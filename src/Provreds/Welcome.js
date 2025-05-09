@@ -1,19 +1,13 @@
-import { React, Fragment } from 'react';
-import classes from './Wel.module.css'
-const Welcome = (props) => {
+import React from 'react';
+import './Wel.css'; // CSS file
 
+const Welcome = () => {
     return (
-        <Fragment>
-            <div className={classes.index}>
-                <div className={classes.warrpwer}>
-                    <h1 className={classes.title}>Welcome To Afghan Proverds App</h1>
+        <div className="split-text-container">
+            <span className="text-part left">Afghan</span>
+            <span className="text-part right">Proverbs</span>
+        </div>
+    );
+};
 
-                </div>
-
-            </div>
-
-        </Fragment>
-    )
-
-}
-export default Welcome
+export default Welcome;
