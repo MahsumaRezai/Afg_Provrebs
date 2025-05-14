@@ -4,12 +4,12 @@ import './main.css'; // CSS file
 const Fri = () => {
     return (
         <Fragment>
-            <div className="mian">
-                <h2>jdjfdjdjjdj</h2>
-
+            <div className="Card">
+            <h2>kskdkdk</h2>
             </div>
 
-        </Fragment>
+
+        </Fragment >
     )
 }
 
