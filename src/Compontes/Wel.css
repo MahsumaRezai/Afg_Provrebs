@@ -1,16 +1,20 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #121212;
-    color: #fff;
+    color:whitesmoke;
     overflow: hidden;
   }
   
+  .waaper {
+    background:#000;
+    padding: 100px
+
+  }
   .split-text-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
     font-size: 5rem;
     font-weight: bold;
     text-transform: uppercase;
