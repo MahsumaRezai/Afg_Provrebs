@@ -1,15 +1,12 @@
 import React from 'react';
-import './Wel.css'; // CSS file
+import './Wel.css'; // Animation CSS
 
 const Welcome = () => {
     return (
         <div className="waaper">
-            <div className="split-text-container">
-                <span className="text-part left">Afghan</span>
-                <span className="text-part right">Proverbs</span>
-            </div>
+            <span className="text-part left">Afghan</span>
+            <span className="text-part right">Proverbs</span>
         </div>
-
     );
 };
 
