@@ -1,18 +1,59 @@
-const List = (props) => {
+import { useState } from 'react';
+import './List.css'
+
+const List = () => {
+    const [text, setText] = useState("Hello, Masoumeh and you are best porp");
+    const [isEditing, setIsEditing] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+
+    const handleAdd = () => {
+        if (inputValue.trim() !== '') {
+            setText(inputValue);
+            setInputValue('');
+        }
+    };
+
+    const handleDelete = () => {
+        setText('');
+    };
+
+    const handleEdit = () => {
+        setIsEditing(true);
+        setInputValue(text);
+    };
+
+    const handleSaveEdit = () => {
+        setText(inputValue);
+        setIsEditing(false);
+        setInputValue('');
+    };
+
     return (
-        <div>
+        <div className="list">
             <ul>
-                <li>Hello, Masoumeh and you are best porp</li>
+                <li>{text}</li>
             </ul>
-            <div>
-                <button>Add Provrebs</button>
-                <button>Edit Provrebs</button>
-                <button>Delete Provrebs</button>
 
+            <div className="btn">
+                <input
+                    type="text"
+                    placeholder="Enter proverb..."
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                />
+
+                {isEditing ? (
+                    <button onClick={handleSaveEdit} className="save">Save Edit</button>
+                ) : (
+                        <>
+                            <button onClick={handleAdd} className="add">Add Proverb</button>
+                            <button onClick={handleEdit} className="edit">Edit Proverb</button>
+                            <button onClick={handleDelete} className="delete">Delete Proverb</button>
+                        </>
+                    )}
             </div>
-
-
-
         </div>
-    )
-}
+    );
+};
+
+export default List;
