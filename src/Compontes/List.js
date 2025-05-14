@@ -1,37 +1,55 @@
 import { useState } from 'react';
-import './List.css'
+import './List.css';
 
 const List = () => {
-    const [text, setText] = useState("Hello, Masoumeh and you are best porp");
-    const [isEditing, setIsEditing] = useState(false);
+    const [proverbs, setProverbs] = useState([
+        "Welcome, to Afghan Proverbs App"
+    ]);
     const [inputValue, setInputValue] = useState('');
+    const [isEditing, setIsEditing] = useState(false);
+    const [editIndex, setEditIndex] = useState(null); // برای ویرایش جمله خاص
 
     const handleAdd = () => {
         if (inputValue.trim() !== '') {
-            setText(inputValue);
+            setProverbs([...proverbs, inputValue]);
             setInputValue('');
         }
     };
 
-    const handleDelete = () => {
-        setText('');
+    const handleDelete = (index) => {
+        const updatedProverbs = proverbs.filter((_, i) => i !== index);
+        setProverbs(updatedProverbs);
     };
 
-    const handleEdit = () => {
+    const handleEdit = (index) => {
         setIsEditing(true);
-        setInputValue(text);
+        setInputValue(proverbs[index]);
+        setEditIndex(index);
     };
 
     const handleSaveEdit = () => {
-        setText(inputValue);
+        const updatedProverbs = [...proverbs];
+        updatedProverbs[editIndex] = inputValue;
+        setProverbs(updatedProverbs);
         setIsEditing(false);
         setInputValue('');
+        setEditIndex(null);
     };
 
     return (
         <div className="list">
             <ul>
-                <li>{text}</li>
+                {proverbs.map((text, index) => (
+                    <li key={index}>
+                        {text}
+                        <div className="btn">
+                            <button onClick={() => handleEdit(index)} className="edit">Edit</button>
+                            <button onClick={() => handleDelete(index)} className="delete">Delete</button>
+                        </div>
+
+
+                    </li>
+                ))}
             </ul>
 
             <div className="btn">
@@ -45,11 +63,7 @@ const List = () => {
                 {isEditing ? (
                     <button onClick={handleSaveEdit} className="save">Save Edit</button>
                 ) : (
-                        <>
-                            <button onClick={handleAdd} className="add">Add Proverb</button>
-                            <button onClick={handleEdit} className="edit">Edit Proverb</button>
-                            <button onClick={handleDelete} className="delete">Delete Proverb</button>
-                        </>
+                        <button onClick={handleAdd} className="add">Add Proverb</button>
                     )}
             </div>
         </div>
