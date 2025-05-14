@@ -4,8 +4,8 @@ import './main.css'; // CSS file
 const Fri = () => {
     return (
         <Fragment>
+            <h1 className="title">List Of Proverbs</h1>
             <div className="Card">
-            <h2>kskdkdk</h2>
             </div>
 
 
