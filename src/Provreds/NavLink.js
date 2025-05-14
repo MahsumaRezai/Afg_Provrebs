@@ -1,10 +1,13 @@
-import { Fragment } from 'react'
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom'
 const Nav = () => {
     return (
         <Fragment>
             <nav>
                 <ul>
-                    <li></li>
+                    <li>
+                        <Link to="welcome"></Link>
+                    </li>
                 </ul>
             </nav>
 
