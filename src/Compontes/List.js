@@ -7,8 +7,7 @@ const List = () => {
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isEditing, setIsEditing] = useState(false);
-    const [editIndex, setEditIndex] = useState(null); // برای ویرایش جمله خاص
-
+    const [editIndex, setEditIndex] = useState(null);
     const handleAdd = () => {
         if (inputValue.trim() !== '') {
             setProverbs([...proverbs, inputValue]);
@@ -46,8 +45,6 @@ const List = () => {
                             <button onClick={() => handleEdit(index)} className="edit">Edit</button>
                             <button onClick={() => handleDelete(index)} className="delete">Delete</button>
                         </div>
-
-
                     </li>
                 ))}
             </ul>
@@ -59,7 +56,6 @@ const List = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-
                 {isEditing ? (
                     <button onClick={handleSaveEdit} className="save">Save Edit</button>
                 ) : (
