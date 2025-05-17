@@ -3,7 +3,7 @@ import './List.css';
 
 const List = () => {
     const [proverbs, setProverbs] = useState([
-        "Welcome, to Afghan Proverbs App"
+        "پرسیدن عیب نیست، ندانستن عیب است"
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isEditing, setIsEditing] = useState(false);
@@ -42,8 +42,8 @@ const List = () => {
                     <li key={index}>
                         {text}
                         <div className="btn">
-                            <button onClick={() => handleEdit(index)} className="edit">Edit</button>
-                            <button onClick={() => handleDelete(index)} className="delete">Delete</button>
+                            <button onClick={() => handleEdit(index)} className="edit">ویرایش</button>
+                            <button onClick={() => handleDelete(index)} className="delete">پاک  نمودن</button>
                         </div>
                     </li>
                 ))}
@@ -52,14 +52,14 @@ const List = () => {
             <div className="btn">
                 <input
                     type="text"
-                    placeholder="Enter proverb..."
+                    placeholder="ضرب المثل تان را اضافه کنید"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
                 {isEditing ? (
-                    <button onClick={handleSaveEdit} className="save">Save Edit</button>
+                    <button onClick={handleSaveEdit} className="save">ذخیره ویرایش</button>
                 ) : (
-                        <button onClick={handleAdd} className="add">Add Proverb</button>
+                        <button onClick={handleAdd} className="add">اضافه  نمودن ضرب المثل</button>
                     )}
             </div>
         </div>
