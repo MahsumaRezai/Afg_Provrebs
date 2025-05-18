@@ -5,7 +5,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// داده تستی اولیه
 let proverbs = [
   {
     id: 1,
@@ -19,7 +18,6 @@ let proverbs = [
 
 let nextId = 2;
 
-// ✅ GET همه ضرب‌المثل‌ها یا فیلتر بر اساس دسته‌بندی
 app.get('/proverbs', (req, res) => {
   const { category } = req.query;
   if (category) {
@@ -29,19 +27,16 @@ app.get('/proverbs', (req, res) => {
   res.json(proverbs);
 });
 
-// ✅ GET ضرب‌المثل تصادفی
 app.get('/proverbs/random', (req, res) => {
   const random = proverbs[Math.floor(Math.random() * proverbs.length)];
   res.json(random);
 });
 
-// ✅ GET ضرب‌المثل تکی بر اساس ID
 app.get('/proverbs/:id', (req, res) => {
   const proverb = proverbs.find(p => p.id === parseInt(req.params.id));
   proverb ? res.json(proverb) : res.status(404).json({ error: 'Not found' });
 });
 
-// ✅ POST افزودن ضرب‌المثل جدید
 app.post('/proverbs', (req, res) => {
   const { textDari, textPashto, translationEn, meaning, category } = req.body;
   if (!textDari || !textPashto || !translationEn || !meaning || !category) {
@@ -59,7 +54,6 @@ app.post('/proverbs', (req, res) => {
   res.status(201).json(newProverb);
 });
 
-// ✅ PUT ویرایش ضرب‌المثل
 app.put('/proverbs/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = proverbs.findIndex(p => p.id === id);
@@ -74,7 +68,6 @@ app.put('/proverbs/:id', (req, res) => {
   res.json(proverbs[index]);
 });
 
-// ✅ DELETE حذف ضرب‌المثل
 app.delete('/proverbs/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const before = proverbs.length;
@@ -83,5 +76,4 @@ app.delete('/proverbs/:id', (req, res) => {
   res.status(204).send();
 });
 
-// ✅ اجرای سرور
 app.listen(5000, () => console.log('✅ Server running on http://localhost:5000'));
