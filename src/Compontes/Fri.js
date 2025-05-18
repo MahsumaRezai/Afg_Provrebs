@@ -5,7 +5,7 @@ import List from './List'
 const Fri = () => {
     return (
         <Fragment>
-            <h1 className="title">لیست از ضرب المثل ها</h1>
+            <h1 className="title">List Of Proverbs</h1>
             <div className="Card">
                 <List />
             </div>

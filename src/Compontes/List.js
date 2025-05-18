@@ -113,7 +113,7 @@ const List = () => {
 
     return (
         <div className="list">
-            <h2> {lang.currentLanguage}</h2>
+            <h2 className="lan"> {lang.currentLanguage}</h2>
             <button onClick={toggleLanguage} className="switch-lang">{lang.switchLanguage}</button>
 
             <ul>
