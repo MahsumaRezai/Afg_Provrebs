@@ -113,7 +113,7 @@ const List = () => {
 
     return (
         <div className="list">
-            <h2>زبان فعلی: {lang.currentLanguage}</h2>
+            <h2> {lang.currentLanguage}</h2>
             <button onClick={toggleLanguage} className="switch-lang">{lang.switchLanguage}</button>
 
             <ul>
@@ -150,8 +150,8 @@ const List = () => {
                 {isEditing ? (
                     <button onClick={handleSaveEdit} className="save">{lang.save}</button>
                 ) : (
-                    <button onClick={handleAdd} className="add">{lang.add}</button>
-                )}
+                        <button onClick={handleAdd} className="add">{lang.add}</button>
+                    )}
             </div>
         </div>
     );
