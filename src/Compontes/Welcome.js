@@ -1,5 +1,5 @@
 import React from 'react';
-import './Wel.css'; // Animation CSS
+import './Wel.css'; 
 
 const Welcome = () => {
     return (

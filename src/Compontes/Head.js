@@ -8,9 +8,7 @@ const Head = (props) => {
         <Fragment>
             <div className="head">
                 <Welcome />
-
             </div>
-
 
         </Fragment>
     )
